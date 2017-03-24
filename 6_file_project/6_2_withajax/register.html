@@ -1,0 +1,54 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>注册新用户</title>
+  </head>
+  <body>
+    <h3>注册新用户</h3>
+    <form>
+      <input type="text" id="username" value="" placeholder="请输入你的真实姓名"><br/>
+      <input type="email" id="email" value="" placeholder="请输入邮箱"><br/>
+      <input type="password" id="psw1" value="" placeholder="请输入密码"><br/>
+      <input type="password" id="psw2" value="" placeholder="请再次输入密码"><br/>
+      <input type="button" id="" onclick="registerSubmit(this);return false;" value="提交">
+    </form>
+
+    <script type="text/javascript">
+      function registerSubmit()
+      {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var psw1 = document.getElementById("psw1").value;
+        var psw2 = document.getElementById("psw2").value;
+        var request = new XMLHttpRequest();
+        request.open("POST","./server.php?act=register",true);
+        request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        request.send("username="+username+"&email="+email+"&psw1="+psw1+"&psw2="+psw2);
+        request.onreadystatechange = function()
+        {
+          var SECCESS_RETURN = 1000;
+          var ILLEGAL_ACT_VALUE = 1;
+          var PSW_NOT_EQUAE = 2;
+          var CAN_NOT_STORE = 3;
+          var REGI_EMAIL_EXISTS = 4;
+          if (request.readyState==4 && request.status==200)
+          {
+            var responseObj = JSON.parse(request.responseText);
+            switch (responseObj.code) {
+              case SECCESS_RETURN:
+                alert(responseObj.msg);
+                window.location.href = "./index.html";
+                break;
+              default:
+                alert(responseObj.msg);
+                break;
+            }
+          }
+        }
+      }
+    </script>
+
+  </body>
+</html>
