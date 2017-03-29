@@ -1,9 +1,9 @@
 <?php
-namespace Filepro\Controller;
+namespace DBpro\Controller;
 
-use Filepro\Model\FileUtils;
+use DBpro\Model\DBUtils;
 
-require_once('Model/FileUtils.class.php');
+require_once('Model/DBUtils.class.php');
 require_once('Handle.class.php');
 /**
  *
@@ -18,7 +18,7 @@ class RegisterHandle extends Handle
     $psw1 = $this->safe_post('psw1');
     $psw2 = $this->safe_post('psw2');
 
-    $fileUtils = new FileUtils();
+    $DBUtils = new DBUtils();
 
     //检测两次密码是否相同
     if ($psw1 != $psw2) {
@@ -33,14 +33,14 @@ class RegisterHandle extends Handle
       return json_encode($return_arr);
     }
 
-    $reg_array = ['userid'=>$fileUtils->getNextId(),
+    $reg_array = ['userid'=>$DBUtils->getNextId(),
                   'username'=>$username,
                   'email'=>$email,
                   'psw'=>$psw1,
                   'status'=>Handle::USER_STATUS_NORMAL,
                   'create_date'=>time()];
 
-    if ($fileUtils->register($reg_array)) {
+    if ($DBUtils->register($reg_array)) {
       $return_arr = ['code'=>Handle::SECCESS_RETURN,'msg'=>'注册成功'];
       return json_encode($return_arr);
     }else {

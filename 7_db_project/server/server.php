@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-use Filepro\Controller\LoginHandle;
-use Filepro\Controller\RegisterHandle;
+use Controller\LoginHandle;
+use Controller\RegisterHandle;
 
 require_once('Controller/RegisterHandle.class.php');
 
