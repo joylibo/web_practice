@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-use Controller\LoginHandle;
-use Controller\RegisterHandle;
+use DBpro\Controller\LoginHandle;
+use DBpro\Controller\RegisterHandle;
 
 require_once('Controller/RegisterHandle.class.php');
 

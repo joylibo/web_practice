@@ -1,5 +1,5 @@
 <?php
-namespace Filepro\Controller;
+namespace DBpro\Controller;
 
 /**
  * Handle类的基类，
