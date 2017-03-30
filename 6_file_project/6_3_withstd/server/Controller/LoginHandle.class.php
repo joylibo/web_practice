@@ -1,5 +1,5 @@
 <?php
-namespace DBpro\Controller;
+namespace Controller;
 
 /**
  *
@@ -11,5 +11,4 @@ class LoginHandle extends Handle
   {
     # code...
   }
-
 }

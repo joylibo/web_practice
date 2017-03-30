@@ -1,15 +1,14 @@
 <?php
-namespace DBpro\Controller;
+namespace Controller;
 
 /**
  *
  */
-class LoginHandle extends Handle
+class RegisterHandle extends Handle
 {
 
   function __construct(argument)
   {
     # code...
   }
-
 }

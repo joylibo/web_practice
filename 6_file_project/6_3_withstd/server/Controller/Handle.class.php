@@ -1,15 +1,14 @@
 <?php
-namespace DBpro\Controller;
+namespace Controller;
 
 /**
- *
+ * Handle类的基类，
  */
-class LoginHandle extends Handle
+class Handle
 {
 
   function __construct(argument)
   {
     # code...
   }
-
 }
