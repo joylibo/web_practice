@@ -61,16 +61,14 @@ switch ($act) {
     //检测两次密码是否相同
     if ($psw1 != $psw2) {
       $return_arr = ['code'=>PSW_NOT_EQUAE,'msg'=>'两次输入密码不同'];
-      header('Location: http://127.0.0.1/web_practice/6_file_project/6_1_withform/register.php?act=register&code='
+      header('Location: http://127.0.0.1/web_practice/6_file_project/6_1_withform/register.php?code='
       .$return_arr['code'].'&msg='.$return_arr['msg']);
       exit();
     }
     //检测注册的email是否存在
     if (file_exists('./data/userinf') && email_exists($email)) {
       $return_arr = ['code'=>REGI_EMAIL_EXISTS,'msg'=>'email已经存在'];
-      $_SESSION['code'] = $return_arr['code'];
-      $_SESSION['msg'] = $return_arr['msg'];
-      header('Location: http://127.0.0.1/web_practice/6_file_project/6_1_withform/register.php?act=register&code='
+      header('Location: http://127.0.0.1/web_practice/6_file_project/6_1_withform/register.php?code='
       .$return_arr['code'].'&msg='.$return_arr['msg']);
       exit();
     }
@@ -96,7 +94,8 @@ switch ($act) {
       $return_arr = ['code'=> CAN_NOT_STORE,'msg'=>'服务器不能存储您的注册信息，错误信息:'.$e->getMessage()];
       $_COOKIE['code'] = $return_arr['code'];
       $_COOKIE['msg'] = $return_arr['msg'];
-      header('Location: http://127.0.0.1/web_practice/6_file_project/6_1_withform/register.php?act=register');
+      header('Location: http://127.0.0.1/web_practice/6_file_project/6_1_withform/register.php?code='
+      .$return_arr['code'].'&msg='.$return_arr['msg']);
       exit();
     }
   }

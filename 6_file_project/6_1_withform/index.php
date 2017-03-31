@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title>登录</title>
   </head>
-  <?php echo '<p style="color:red">'.$_GET['msg'].'</p>' ?>
+  <?php
+  $msg = isset($_GET['msg'])?$_GET['msg']:null;
+  echo '<p style="color:red">'.$msg.'</p>'; ?>
   <body>
     <form class="" action="server.php?act=login" method="post">
       <input type="email" name="email" value="" placeholder="请输入邮箱"><br/>
