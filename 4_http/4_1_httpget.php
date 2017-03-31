@@ -12,6 +12,7 @@
     url中nameid的值可以不断改变，在浏览器中观察返回值
     */
     $nameid = isset($_GET['nameid'])?$_GET['nameid']:null;
+    //$nameid = $_GET['nameid'];
     switch ($nameid) {
       case '1':
         echo "1.哈利波特";
@@ -26,6 +27,8 @@
         echo "没有你要找的东西";
         break;
     }
+    $name = $_GET['name'];
+    echo $name;
      ?>
   </body>
 </html>

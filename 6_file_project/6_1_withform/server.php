@@ -70,7 +70,8 @@ switch ($act) {
       $return_arr = ['code'=>REGI_EMAIL_EXISTS,'msg'=>'email已经存在'];
       $_SESSION['code'] = $return_arr['code'];
       $_SESSION['msg'] = $return_arr['msg'];
-      header('Location: http://127.0.0.1/web_practice/6_file_project/6_1_withform/register.php?act=register');
+      header('Location: http://127.0.0.1/web_practice/6_file_project/6_1_withform/register.php?act=register&code='
+      .$return_arr['code'].'&msg='.$return_arr['msg']);
       exit();
     }
     //拼装需要存储的数组
@@ -89,7 +90,8 @@ switch ($act) {
       }
       fwrite($fp,json_encode($reg_array)."\r\n");
       fclose($fp);
-      $return_arr = ['code'=>SECCESS_RETURN,'msg'=>'注册成功'];
+      $return_arr = ['code'=>SECCESS_RETURN,'msg'=>'注册成功,请登录'];
+      header('Location: http://127.0.0.1/web_practice/6_file_project/6_1_withform/index.php?msg='.$return_arr['msg']);
     } catch (Exception $e) {
       $return_arr = ['code'=> CAN_NOT_STORE,'msg'=>'服务器不能存储您的注册信息，错误信息:'.$e->getMessage()];
       $_COOKIE['code'] = $return_arr['code'];
@@ -106,7 +108,7 @@ switch ($act) {
     while (!(feof($fp)||$probe)) {
       $user_arr = json_decode(fgets($fp));
       if (!isset($user_arr->email)) {
-        break;
+        continue;
       }
       if($email_str == $user_arr->email){
           $probe = true;

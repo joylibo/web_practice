@@ -12,10 +12,16 @@
       <input type="button" name="btnsubmt" onclick="ajaxsubmit(this);return false;" value="提交">
     </form>
     <br>
+
+
+
     <p>账号和密码已经通过硬编码的方式写在服务端，只有在账号填写“ajax”，密码填写“login”的时候才可以登录。
       <br/>本例是为了快速演示，在实际项目中不能通过硬编码的方式设定账号密码。
       <br/>在第6章节与第7章节中，我们将学习如何保存用户账号与密码。
     </p>
+
+
+
   <script type="text/javascript">
     function ajaxsubmit(){
       var username = document.getElementById("username").value;
@@ -25,11 +31,11 @@
       request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
       request.send("username="+username+"&pwd="+pwd);
       request.onreadystatechange = function(){
-        var SECCESS_RETURN = "1";
+        var SUCCESS_RETURN = "1";
         var REFUSE_RETURN = "0";
         if (request.readyState==4 && request.status==200){
-          if(SECCESS_RETURN == request.responseText){
-            window.location.href = "./seccess.html";
+          if(SUCCESS_RETURN == request.responseText){
+            window.location.href = "./success.html";
           }else if(REFUSE_RETURN == request.responseText){
             window.location.href = "./refuse.html";
           }else {

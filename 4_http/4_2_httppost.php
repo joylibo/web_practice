@@ -7,7 +7,7 @@
   <body>
     <?php
     $post_para = isset($_POST['para'])?$_POST['para']:null;
-    $form ='<form class="" action="./httppost.php" method="post">
+    $form ='<form class="" action="./4_2_httppost.php" method="post">
                 <input type="text" name="para" value="">
                 <input type="submit" value="提交">
               </form>';

@@ -17,20 +17,9 @@
     <?php
     $getcode = isset($_GET['code'])?$_GET['code']:null;
     $getmsg = isset($_GET['msg'])?$_GET['msg']:null;
-    $sscode = isset($_SESSION['code'])?$_SESSION['code']:null;
-    $ssmsg = isset($_SESSION['msg'])?$_SESSION['msg']:null;
-    $ckcode = isset($_COOKIE['code'])?$_COOKIE['code']:null;
-    $ckmsg = isset($_COOKIE['msg'])?$_COOKIE['msg']:null;
+
     if (null != $getcode) {
       echo '<p style="color:red">'.$getmsg.'</p>';
-    }
-    if (null != $sscode) {
-      echo '<p style="color:red">'.$ssmsg.'</p>';
-      $_SESSION['code'] = null;
-      $_SESSION['msg'] = null;
-    }
-    if (null != $ckcode) {
-      echo '<p style="color:red">'.$ckmsg.'</p>';
     }
 
      ?>

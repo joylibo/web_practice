@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <title>登录</title>
   </head>
+  <?php echo '<p style="color:red">'.$_GET['msg'].'</p>' ?>
   <body>
     <form class="" action="server.php?act=login" method="post">
       <input type="email" name="email" value="" placeholder="请输入邮箱"><br/>
       <input type="password" name="psw" value="" placeholder="请输入密码"><br/>
       <input type="submit" name="submitbtn" value="提交">
       <br>
-      <a href="./register.html">新用户注册</a>
+      <a href="./register.php">新用户注册</a>
     </form>
     <br/>
     <br/>

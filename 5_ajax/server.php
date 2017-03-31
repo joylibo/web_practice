@@ -6,4 +6,3 @@ if ("ajax" == $username && "login" == $pwd) {
 }else {
   echo 0;
 }
- ?>
