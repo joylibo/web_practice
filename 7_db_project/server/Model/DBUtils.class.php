@@ -9,11 +9,11 @@ require_once('DBUtils.interface.php');
  */
 class DBUtils implements iDBUtils
 {
-  const DBhost = '55a32a9887e03.gz.cdb.myqcloud.com';
-  const DBport = '16273';
-  const DBusername = 'cdb_outerroot';
-  const DBpasswd = 'Libo1234';
-  const DBschema = 'web_practice';
+  const DBhost = '数据库所在域名或IP';
+  const DBport = '端口号';
+  const DBusername = '用户名';
+  const DBpasswd = '密码';
+  const DBschema = '数据库名称';
 
 
   /**
